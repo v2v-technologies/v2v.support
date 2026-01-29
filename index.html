@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2V Technologies | Remote Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- BRAND CONFIGURATION --- */
+        :root {
+            --brand-primary: #3b82f6;
+            --brand-accent: #06b6d4;
+            --bg-deep: #0b1120;
+            --bg-card: #1e293b;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- LANGUAGE SELECTION OVERLAY --- */
+        #lang-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(11, 17, 32, 0.98);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s;
+        }
+
+        .lang-card {
+            text-align: center;
+            animation: fadeUp 0.8s ease-out;
+        }
+
+        .lang-options {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .lang-btn {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 160px;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--brand-primary);
+            background: rgba(59, 130, 246, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .hide-overlay {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* --- NAV BAR --- */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--brand-primary), var(--brand-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Small language switcher in nav for changing later */
+        .nav-lang-switch {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .nav-lang-switch:hover { color: white; border-color: white; }
+
+        /* --- HERO --- */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(11, 17, 32, 0) 70%);
+        }
+
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
+        .sub-text { color: var(--text-gray); font-size: 1.2rem; max-width: 600px; margin-bottom: 40px; }
+
+        /* --- BUTTON --- */
+        .download-btn {
+            background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+            color: white;
+            padding: 18px 45px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s;
+        }
+        .download-btn:hover { transform: translateY(-2px); }
+
+        /* --- STEPS --- */
+        .steps-container {
+            max-width: 1100px;
+            margin: 0 auto 100px auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 3rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.03);
+            position: absolute; right: 20px; top: 10px;
+        }
+
+        .step-icon {
+            width: 50px; height: 50px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px; color: var(--brand-accent);
+        }
+
+        .security-box {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            padding: 15px; border-radius: 8px; font-size: 0.9rem; margin-top: 15px;
+        }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 40px; text-align: center; color: var(--text-gray); font-size: 0.9rem;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: fadeUp 0.8s ease-out forwards; opacity: 0; }
+        .d-1 { animation-delay: 0.1s; } .d-2 { animation-delay: 0.2s; } .d-3 { animation-delay: 0.3s; }
+
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .lang-options { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <!-- LANGUAGE SELECTION OVERLAY -->
+    <div id="lang-overlay">
+        <div class="lang-card">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">V2V Technologies</h2>
+            <p style="color: var(--text-gray);">Please select your language / Veuillez choisir votre langue</p>
+            
+            <div class="lang-options">
+                <button class="lang-btn" onclick="setLanguage('en')">us English</button>
+                <button class="lang-btn" onclick="setLanguage('fr')">🇫🇷 Français</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <nav class="animate">
+        <div class="logo">V2V Technologies</div>
+        <div class="nav-lang-switch" onclick="toggleLanguage()">EN / FR</div>
+    </nav>
+
+    <header class="hero">
+        <div class="animate d-1">
+            <h1 data-i18n="hero_title">Let's get you connected.</h1>
+            <p class="sub-text" data-i18n="hero_sub">Download the V2V Support Agent below to allow our technicians to assist you remotely. Secure, encrypted, and private.</p>
+            
+            <!-- *** INSERT YOUR LINK HERE *** -->
+            <a href="https://github.com/v2v-technologies/v2v.support/releases/download/rustdesk/rustdesk-host.172.245.42.148.key.ZQUNLdKyinfkvjldXuicbFadavsL2FCEOko9kGQD93E.exe" class="download-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                <span data-i18n="btn_download">Download Support Tool</span>
+            </a>
+
+            <div style="margin-top: 15px; color: var(--text-gray); font-size: 0.9rem;">
+                <span style="color:#10b981; background:rgba(16,185,129,0.1); padding:4px 8px; border-radius:10px;">✔ Verified</span>
+                Windows • Mac • Linux
+            </div>
+        </div>
+    </header>
+
+    <section class="steps-container">
+        <!-- Step 1 -->
+        <div class="step-card animate d-2">
+            <span class="step-num">01</span>
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div>
+            <h3 data-i18n="step1_title">Run the Agent</h3>
+            <p data-i18n="step1_desc">Click the download button above. Once finished, open the file. No installation is required.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card animate d-2">
+            <span class="step-num">02</span>
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+            <h3 data-i18n="step2_title">Accept Permissions</h3>
+            <p data-i18n="step2_desc">If your computer asks for permission, please click <strong>Allow</strong> or Open System Preferences.</p>
+            <div class="security-box" data-i18n="mac_warning">
+                ⚠️ Mac Users: You must allow "Screen Recording" in settings.
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card animate d-3">
+            <span class="step-num">03</span>
+            <div class="step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg></div>
+            <h3 data-i18n="step3_title">Provide your ID</h3>
+            <p data-i18n="step3_desc">You will see a number labeled "Your ID". Please provide this number to your technician.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 V2V Technologies. <span data-i18n="footer">Secure Remote Support.</span></p>
+    </footer>
+
+    <!-- TRANSLATION SCRIPT -->
+    <script>
+        const translations = {
+            en: {
+                hero_title: "Let's get you connected.",
+                hero_sub: "Download the V2V Support Agent below to allow our technicians to assist you remotely. Secure, encrypted, and private.",
+                btn_download: "Download Support Tool",
+                step1_title: "Run the Agent",
+                step1_desc: "Click the download button above. Once finished, open the file. No installation is required.",
+                step2_title: "Accept Permissions",
+                step2_desc: "If your computer asks for permission, please click <strong>Allow</strong> or Open System Preferences.",
+                mac_warning: "⚠️ Mac Users: You must allow 'Screen Recording' in settings.",
+                step3_title: "Provide your ID",
+                step3_desc: "You will see a number labeled 'Your ID'. Please provide this number to your technician.",
+                footer: "Secure Remote Support."
+            },
+            fr: {
+                hero_title: "Connectons-nous.",
+                hero_sub: "Téléchargez l'agent de support V2V ci-dessous pour permettre à nos techniciens de vous aider à distance. Sécurisé, crypté et privé.",
+                btn_download: "Télécharger l'outil",
+                step1_title: "Lancez l'agent",
+                step1_desc: "Cliquez sur le bouton de téléchargement ci-dessus. Une fois terminé, ouvrez le fichier. Aucune installation requise.",
+                step2_title: "Acceptez les permissions",
+                step2_desc: "Si votre ordinateur demande une autorisation, veuillez cliquer sur <strong>Autoriser</strong> ou Ouvrir les préférences.",
+                mac_warning: "⚠️ Utilisateurs Mac: Vous devez autoriser 'Enregistrement de l'écran'.",
+                step3_title: "Donnez votre ID",
+                step3_desc: "Vous verrez un numéro étiqueté 'Votre ID'. Veuillez fournir ce numéro à votre technicien.",
+                footer: "Support à distance sécurisé."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            const elements = document.querySelectorAll('[data-i18n]');
+            
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Fade out the overlay
+            document.getElementById('lang-overlay').classList.add('hide-overlay');
+        }
+
+        function toggleLanguage() {
+            const newLang = currentLang === 'en' ? 'fr' : 'en';
+            setLanguage(newLang);
+            // Don't show overlay again if just toggling from nav
+            document.getElementById('lang-overlay').classList.add('hide-overlay'); 
+        }
+    </script>
+
+</body>
+</html>
