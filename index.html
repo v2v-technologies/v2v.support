@@ -219,7 +219,7 @@
             <p class="sub-text" data-i18n="hero_sub">Download the V2V Support Agent below to allow our technicians to assist you remotely. Secure, encrypted, and private.</p>
             
             <!-- *** INSERT YOUR LINK HERE *** -->
-            <a href="https://gemcrm.ca/rustdesk-host%3D172.245.42.148%2Ckey%3D3lE3yqkcTxre1Lpru9PQv65rKcaRA4q3GzRfIQr7HlI%3D.exe" class="download-btn">
+            <a href="#" class="download-btn" id="download-link">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                 <span data-i18n="btn_download">Download Support Tool</span>
             </a>
@@ -318,6 +318,18 @@
             // Don't show overlay again if just toggling from nav
             document.getElementById('lang-overlay').classList.add('hide-overlay'); 
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const downloadBtn = document.getElementById('download-link');
+    
+    if (downloadBtn) {
+        downloadBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const timestamp = Date.now();
+            window.location.href = `https://gemcrm.ca/dl.php?t=${timestamp}`;
+        });
+    }
+});
     </script>
 
 </body>
