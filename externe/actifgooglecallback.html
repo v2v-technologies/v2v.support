@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head><title>Google Auth Redirect</title></head>
+<body>
+<p>Redirecting...</p>
+<script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var code  = urlParams.get('code');
+    var state = urlParams.get('state');
+    var error = urlParams.get('error');
+    
+    // state = "random|https://app.gem-car.com"
+    var origin = state ? state.split('|')[1] : null;
+    var random = state ? state.split('|')[0] : null;
+    
+    if (error && origin) {
+        window.location.href = origin + '/externe/actifgooglecallback.html?error=' + encodeURIComponent(error) + '&state=' + encodeURIComponent(random);
+    } else if (code && origin) {
+        window.location.href = origin + '/externe/actifgooglecallback.html?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(random);
+    } else {
+        document.body.innerHTML = '<p>Error: Missing parameters.</p>';
+    }
+</script>
+</body>
+</html>
