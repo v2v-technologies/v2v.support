@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V2V Technologies | Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-primary: #3b82f6;
+            --brand-accent: #06b6d4;
+            --bg-deep: #0b1120;
+            --bg-card: #1e293b;
+            --text-white: #f8fafc;
+            --text-gray: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-white);
+            line-height: 1.8;
+        }
+
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--brand-primary), var(--brand-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-lang-switch {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .nav-lang-switch:hover { color: white; border-color: white; }
+
+        .content {
+            max-width: 800px;
+            margin: 40px auto 80px auto;
+            padding: 0 5%;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 35px;
+            margin-bottom: 12px;
+            color: var(--brand-accent);
+        }
+
+        p, li {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        ul {
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        li { margin-bottom: 6px; }
+
+        a { color: var(--brand-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--text-white);
+        }
+
+        .highlight-box ul { margin-bottom: 0; }
+
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 40px; text-align: center; color: var(--text-gray); font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--text-gray);
+            margin: 0 10px;
+        }
+
+        footer a:hover { color: var(--text-white); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">V2V Technologies</a>
+        <div class="nav-lang-switch" onclick="toggleLanguage()">EN / FR</div>
+    </nav>
+
+    <div class="content" id="policy-content">
+        <h1 data-i18n="title">Privacy Policy</h1>
+        <p class="last-updated" data-i18n="updated">Last updated: March 13, 2026</p>
+
+        <p data-i18n="intro">V2V Technologies Inc. ("we", "our", "us") operates cloud-based business management applications including GEM-BOOKS and GEM-CAR. This privacy policy explains how we collect, use, and protect your information, including data accessed through Google services.</p>
+
+        <h2 data-i18n="h_collect">Information We Collect</h2>
+        <p data-i18n="p_collect">When you use our applications, we may collect the following information:</p>
+        <ul>
+            <li data-i18n="li_collect_1">Name, email address, phone number, and business information provided during account registration</li>
+            <li data-i18n="li_collect_2">Usage data and activity logs to improve our services</li>
+            <li data-i18n="li_collect_3">Google authentication tokens when you connect your Google/Gmail account</li>
+        </ul>
+
+        <h2 data-i18n="h_use">How We Use Your Information</h2>
+        <p data-i18n="p_use">We use the information we collect to:</p>
+        <ul>
+            <li data-i18n="li_use_1">Provide and maintain our business management services</li>
+            <li data-i18n="li_use_2">Send business emails (invoices, quotes, notifications) on your behalf through your connected Gmail account</li>
+            <li data-i18n="li_use_3">Provide customer support and respond to your requests</li>
+            <li data-i18n="li_use_4">Improve and optimize our applications</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3 data-i18n="h_google">Google User Data</h3>
+            <p data-i18n="p_google_1">Our applications use Google OAuth 2.0 to connect to your Gmail account. We request access to the following scope:</p>
+            <ul>
+                <li data-i18n="li_google_1"><strong>gmail.send</strong> — to send emails (invoices, quotes, business communications) on your behalf when you initiate a send action within our application</li>
+            </ul>
+            <p data-i18n="p_google_2">Regarding your Google data:</p>
+            <ul>
+                <li data-i18n="li_google_2">We only send emails that you explicitly initiate within our application</li>
+                <li data-i18n="li_google_3">We do not read, scan, or access the contents of your mailbox</li>
+                <li data-i18n="li_google_4">We store only the authentication tokens necessary to send emails on your behalf</li>
+                <li data-i18n="li_google_5">We do not share, sell, or transfer your Google data to any third parties</li>
+                <li data-i18n="li_google_6">We do not use your Google data for advertising, analytics, or AI/ML training purposes</li>
+                <li data-i18n="li_google_7">You can revoke access at any time through your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Permissions</a></li>
+            </ul>
+            <p data-i18n="p_google_3">Our use of Google user data complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+        </div>
+
+        <h2 data-i18n="h_share">Data Sharing</h2>
+        <p data-i18n="p_share">We do not sell, trade, or share your personal information with third parties, except when required by law or to protect our legal rights.</p>
+
+        <h2 data-i18n="h_security">Data Security</h2>
+        <p data-i18n="p_security">We use industry-standard security measures including TLS encryption to protect your data in transit and at rest. Access to user data is restricted to authorized employees bound by strict confidentiality agreements.</p>
+
+        <h2 data-i18n="h_retention">Data Retention</h2>
+        <p data-i18n="p_retention">We retain your data only as long as necessary to provide our services. Authentication tokens are stored securely and can be revoked by you at any time. When you disconnect your Google account or delete your account, associated tokens are removed.</p>
+
+        <h2 data-i18n="h_rights">Your Rights</h2>
+        <p data-i18n="p_rights">You have the right to access, correct, or delete your personal data. You may revoke Google access at any time. To exercise your rights, contact us at the address below.</p>
+
+        <h2 data-i18n="h_compliance">Compliance</h2>
+        <p data-i18n="p_compliance">This policy complies with the Personal Information Protection and Electronic Documents Act (PIPEDA), the General Data Protection Regulation (GDPR) for EU residents, and the California Consumer Privacy Act (CCPA) for California residents.</p>
+
+        <h2 data-i18n="h_contact">Contact Us</h2>
+        <p data-i18n="p_contact">If you have questions about this privacy policy or wish to exercise your rights:</p>
+        <p>
+            V2V Technologies Inc.<br>
+            4460 Rue Bélanger, Montréal, QC, H1T 1B5<br>
+            <a href="mailto:info@gem-books.com">info@gem-books.com</a><br>
+            1 (866) 848-8282
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 V2V Technologies Inc.</p>
+        <p style="margin-top: 10px;">
+            <a href="/">Home</a> |
+            <a href="mailto:info@gem-books.com">Contact Us</a>
+        </p>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                title: "Privacy Policy",
+                updated: "Last updated: March 13, 2026",
+                intro: 'V2V Technologies Inc. ("we", "our", "us") operates cloud-based business management applications including GEM-BOOKS and GEM-CAR. This privacy policy explains how we collect, use, and protect your information, including data accessed through Google services.',
+                h_collect: "Information We Collect",
+                p_collect: "When you use our applications, we may collect the following information:",
+                li_collect_1: "Name, email address, phone number, and business information provided during account registration",
+                li_collect_2: "Usage data and activity logs to improve our services",
+                li_collect_3: "Google authentication tokens when you connect your Google/Gmail account",
+                h_use: "How We Use Your Information",
+                p_use: "We use the information we collect to:",
+                li_use_1: "Provide and maintain our business management services",
+                li_use_2: "Send business emails (invoices, quotes, notifications) on your behalf through your connected Gmail account",
+                li_use_3: "Provide customer support and respond to your requests",
+                li_use_4: "Improve and optimize our applications",
+                h_google: "Google User Data",
+                p_google_1: "Our applications use Google OAuth 2.0 to connect to your Gmail account. We request access to the following scope:",
+                li_google_1: "<strong>gmail.send</strong> — to send emails (invoices, quotes, business communications) on your behalf when you initiate a send action within our application",
+                p_google_2: "Regarding your Google data:",
+                li_google_2: "We only send emails that you explicitly initiate within our application",
+                li_google_3: "We do not read, scan, or access the contents of your mailbox",
+                li_google_4: "We store only the authentication tokens necessary to send emails on your behalf",
+                li_google_5: "We do not share, sell, or transfer your Google data to any third parties",
+                li_google_6: "We do not use your Google data for advertising, analytics, or AI/ML training purposes",
+                li_google_7: 'You can revoke access at any time through your <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Permissions</a>',
+                p_google_3: 'Our use of Google user data complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.',
+                h_share: "Data Sharing",
+                p_share: "We do not sell, trade, or share your personal information with third parties, except when required by law or to protect our legal rights.",
+                h_security: "Data Security",
+                p_security: "We use industry-standard security measures including TLS encryption to protect your data in transit and at rest. Access to user data is restricted to authorized employees bound by strict confidentiality agreements.",
+                h_retention: "Data Retention",
+                p_retention: "We retain your data only as long as necessary to provide our services. Authentication tokens are stored securely and can be revoked by you at any time. When you disconnect your Google account or delete your account, associated tokens are removed.",
+                h_rights: "Your Rights",
+                p_rights: "You have the right to access, correct, or delete your personal data. You may revoke Google access at any time. To exercise your rights, contact us at the address below.",
+                h_compliance: "Compliance",
+                p_compliance: "This policy complies with the Personal Information Protection and Electronic Documents Act (PIPEDA), the General Data Protection Regulation (GDPR) for EU residents, and the California Consumer Privacy Act (CCPA) for California residents.",
+                h_contact: "Contact Us",
+                p_contact: "If you have questions about this privacy policy or wish to exercise your rights:"
+            },
+            fr: {
+                title: "Politique de confidentialité",
+                updated: "Dernière mise à jour : 13 mars 2026",
+                intro: 'V2V Technologies Inc. (« nous », « notre ») exploite des applications de gestion d\'entreprise infonuagiques incluant GEM-BOOKS et GEM-CAR. Cette politique de confidentialité explique comment nous recueillons, utilisons et protégeons vos informations, y compris les données accessibles via les services Google.',
+                h_collect: "Informations que nous recueillons",
+                p_collect: "Lorsque vous utilisez nos applications, nous pouvons recueillir les informations suivantes :",
+                li_collect_1: "Nom, adresse courriel, numéro de téléphone et informations d'entreprise fournis lors de l'inscription",
+                li_collect_2: "Données d'utilisation et journaux d'activité pour améliorer nos services",
+                li_collect_3: "Jetons d'authentification Google lorsque vous connectez votre compte Google/Gmail",
+                h_use: "Comment nous utilisons vos informations",
+                p_use: "Nous utilisons les informations recueillies pour :",
+                li_use_1: "Fournir et maintenir nos services de gestion d'entreprise",
+                li_use_2: "Envoyer des courriels d'affaires (factures, soumissions, notifications) en votre nom via votre compte Gmail connecté",
+                li_use_3: "Fournir un support client et répondre à vos demandes",
+                li_use_4: "Améliorer et optimiser nos applications",
+                h_google: "Données utilisateur Google",
+                p_google_1: "Nos applications utilisent Google OAuth 2.0 pour se connecter à votre compte Gmail. Nous demandons l'accès à la portée suivante :",
+                li_google_1: "<strong>gmail.send</strong> — pour envoyer des courriels (factures, soumissions, communications d'affaires) en votre nom lorsque vous initiez un envoi dans notre application",
+                p_google_2: "Concernant vos données Google :",
+                li_google_2: "Nous n'envoyons que les courriels que vous initiez explicitement dans notre application",
+                li_google_3: "Nous ne lisons pas, ne scannons pas et n'accédons pas au contenu de votre boîte de réception",
+                li_google_4: "Nous ne stockons que les jetons d'authentification nécessaires pour envoyer des courriels en votre nom",
+                li_google_5: "Nous ne partageons, ne vendons et ne transférons pas vos données Google à des tiers",
+                li_google_6: "Nous n'utilisons pas vos données Google à des fins de publicité, d'analyse ou d'entraînement IA/ML",
+                li_google_7: 'Vous pouvez révoquer l\'accès à tout moment via vos <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Autorisations de compte Google</a>',
+                p_google_3: 'Notre utilisation des données utilisateur Google est conforme à la <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener">Politique de données utilisateur des services API Google</a>, y compris les exigences d\'utilisation limitée.',
+                h_share: "Partage des données",
+                p_share: "Nous ne vendons, n'échangeons et ne partageons pas vos informations personnelles avec des tiers, sauf si la loi l'exige ou pour protéger nos droits légaux.",
+                h_security: "Sécurité des données",
+                p_security: "Nous utilisons des mesures de sécurité conformes aux normes de l'industrie, incluant le chiffrement TLS pour protéger vos données en transit et au repos. L'accès aux données utilisateur est restreint aux employés autorisés liés par des accords de confidentialité stricts.",
+                h_retention: "Conservation des données",
+                p_retention: "Nous ne conservons vos données que le temps nécessaire pour fournir nos services. Les jetons d'authentification sont stockés de manière sécurisée et peuvent être révoqués par vous à tout moment. Lorsque vous déconnectez votre compte Google ou supprimez votre compte, les jetons associés sont supprimés.",
+                h_rights: "Vos droits",
+                p_rights: "Vous avez le droit d'accéder, de corriger ou de supprimer vos données personnelles. Vous pouvez révoquer l'accès Google à tout moment. Pour exercer vos droits, contactez-nous à l'adresse ci-dessous.",
+                h_compliance: "Conformité",
+                p_compliance: "Cette politique est conforme à la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE), au Règlement général sur la protection des données (RGPD) pour les résidents de l'UE, et au California Consumer Privacy Act (CCPA) pour les résidents de la Californie.",
+                h_contact: "Nous contacter",
+                p_contact: "Si vous avez des questions sur cette politique de confidentialité ou souhaitez exercer vos droits :"
+            }
+        };
+
+        let currentLang = 'en';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        function toggleLanguage() {
+            setLanguage(currentLang === 'en' ? 'fr' : 'en');
+        }
+    </script>
+
+</body>
+</html>
